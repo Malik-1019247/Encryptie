@@ -30,7 +30,7 @@ De gebruiker voert eerst een wachtwoord in. Daarna gebruikt het programma Scrypt
 
 Elke keer als de tekst wordt versleuteld, maakt het programma een random salt van 16 bytes en een nonce van 12 bytes aan. Dan wordt de salt gebruikt bij Scrypt en de nonce bij AES-GCM.
 
-Bij Scrypt gebruik ik als instelling n=2**14, r=8 en p=1. De salt zorgt ervoor dat hetzelfde wachtwoord niet elke keer dezelfde sleutel teruggeeft. De nonce zorgt ervoor dat er bij elke versleuteling een andere waarde wordt gebruikt. Bij AES-GCM is het belangrijk dat dezelfde nonce nooit opnieuw met dezelfde sleutel wordt gebruikt.
+Bij Scrypt gebruik ik als instelling n=2**14, r=8 en p=1. (The cryptography developers, n.d.). De salt zorgt ervoor dat hetzelfde wachtwoord niet elke keer dezelfde sleutel teruggeeft. De nonce zorgt ervoor dat er bij elke versleuteling een andere waarde wordt gebruikt. Bij AES-GCM is het belangrijk dat dezelfde nonce nooit opnieuw met dezelfde sleutel wordt gebruikt.
 
 Als de tekst is versleuteld wordt de salt, nonce, versleutelde tekst en authenticatie tag achter elkaar gezet. Hiervan wordt een Base64 gemaakt. De salt en nonce zijn niet geheim maar het wachtwoord moet dat wel zijn. Daarom slaat het programma het wachtwoord niet op. (Key Management Cheat Sheet, n.d.)
 
